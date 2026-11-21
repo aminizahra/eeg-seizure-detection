@@ -1,0 +1,87 @@
+# configs/phase_a1.yaml
+project:
+  name: "eeg-seizure-phase-a1"
+  seed: 42
+
+paths:
+  raw_data_dir: "data/raw"
+  processed_data_dir: "data/processed"
+
+dataset:
+  selected_cases: ["chb01"]   # برای کل ۲۳ بیمار روی null بگذار
+  fs: 256
+  window_sec: 4.0
+  eval_step_sec: 4.0
+  train_ictal_step_sec: 1.0
+  seizure_overlap_thresh: 0.50
+  standard_18_channels:
+    - "FP1-F7"
+    - "F7-T7"
+    - "T7-P7"
+    - "P7-O1"
+    - "FP1-F3"
+    - "F3-C3"
+    - "C3-P3"
+    - "P3-O1"
+    - "FP2-F4"
+    - "F4-C4"
+    - "C4-P4"
+    - "P4-O2"
+    - "FP2-F8"
+    - "F8-T8"
+    - "T8-P8"
+    - "P8-O2"
+    - "FZ-CZ"
+    - "CZ-PZ"
+
+preprocessing:
+  notch_freqs: [60.0, 120.0]
+  bandpass_low: 0.5
+  bandpass_high: 40.0
+  clip_zscore: 20.0
+  storage_dtype: "float16"
+
+splits:
+  patient_strategy: "group_kfold"   # "group_kfold" یا "loso"
+  n_folds_single: 3
+  n_folds_multi: 5
+  val_ratio: 0.20
+
+features:
+  img_size: [64, 64]
+  stft_nperseg: 256
+  stft_noverlap: 224
+  cwt_n_freqs: 64
+  cwt_fb: 1.5
+  cwt_fc: 1.0
+  cwt_kernel_size: 513
+  cwt_stride: 8
+
+training:
+  train_neg_pos_ratio_xgb: 30
+  train_neg_pos_ratio_dl: 15
+  epochs_cpu: 3
+  epochs_gpu: 12
+  batch_size_cpu: 32
+  batch_size_gpu: 64
+  num_workers_cpu: 0
+  num_workers_gpu: 2
+  lr_simple_cnn: 0.001
+  lr_resnet18: 0.0003
+  weight_decay: 0.01
+  loss_type: "bce"
+  patience: 4
+
+postprocessing:
+  smooth_method: "moving_avg"
+  kernel_size: 3
+  merge_gap_sec: 20.0
+  min_duration_sec: 8.0
+  collar_sec: 0.0
+
+tracker:
+  backend: "mlflow"                 # "mlflow" | "wandb" | "none"
+  experiment_name: "CHB-MIT-Phase-A1"
+  mlflow_db: "mlflow.db"            # هماهنگ با پیش‌فرض `mlflow ui --port 5000`
+  wandb_project: "eeg-seizure-chbmit"
+  wandb_mode: "online"

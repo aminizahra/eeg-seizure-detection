@@ -1,8 +1,8 @@
-subject_id,case_id,filename,rel_path,seizure_idx,start_sec,end_sec,duration_sec,exists_locally,file_duration_sec,is_valid
-chb01,chb01,chb01_03.edf,chb01/chb01_03.edf,1,2996,3036,40,True,3600.0,True
-chb01,chb01,chb01_04.edf,chb01/chb01_04.edf,1,1467,1494,27,True,3600.0,True
-chb01,chb01,chb01_15.edf,chb01/chb01_15.edf,1,1732,1772,40,True,3600.0,True
-chb01,chb01,chb01_16.edf,chb01/chb01_16.edf,1,1015,1066,51,True,3600.0,True
-chb01,chb01,chb01_18.edf,chb01/chb01_18.edf,1,1720,1810,90,True,3600.0,True
-chb01,chb01,chb01_21.edf,chb01/chb01_21.edf,1,327,420,93,True,3600.0,True
-chb01,chb01,chb01_26.edf,chb01/chb01_26.edf,1,1862,1963,101,True,2325.0,True
+subject_id,case_id,filename,rel_path,seizure_idx,start_sec,end_sec,duration_sec
+chb01,chb01,chb01_03.edf,chb01/chb01_03.edf,0,2996.0,3036.0,40.0
+chb01,chb01,chb01_04.edf,chb01/chb01_04.edf,0,1467.0,1494.0,27.0
+chb01,chb01,chb01_15.edf,chb01/chb01_15.edf,0,1732.0,1772.0,40.0
+chb01,chb01,chb01_16.edf,chb01/chb01_16.edf,0,1015.0,1066.0,51.0
+chb01,chb01,chb01_18.edf,chb01/chb01_18.edf,0,1720.0,1810.0,90.0
+chb01,chb01,chb01_21.edf,chb01/chb01_21.edf,0,327.0,420.0,93.0
+chb01,chb01,chb01_26.edf,chb01/chb01_26.edf,0,1862.0,1963.0,101.0
