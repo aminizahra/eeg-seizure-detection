@@ -1,0 +1,29 @@
+# Python & Packaging
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.env
+**/.ipynb_checkpoints/
+
+# Raw data
+data/raw/*
+!data/raw/.gitkeep
+*.edf
+*.edf.seizures
+
+# Heavy processed binaries & checkpoints (CSVs & JSONs remain tracked)
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+**/checkpoints/
+
+# Experiment tracking
+mlflow.db
+mlruns/
+mlartifacts/
+wandb/

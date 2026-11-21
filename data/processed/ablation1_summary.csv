@@ -1,0 +1,4 @@
+experiment,mode,in_chans,folds_eval,val_auroc,val_auprc,test_auroc,test_auprc,preproc_ms_per_win,infer_ms_per_win,total_ms_per_win
+resnet18_stft,stft,18,[0],1.0,0.9982,0.9906,0.8792,0.17,2.41,2.58
+resnet18_cwt,cwt,18,[0],1.0,1.0,0.9994,0.8206,3.86,2.63,6.49
+resnet18_fusion,both,36,[0],1.0,1.0,0.9995,0.868,2.66,2.3,4.95
